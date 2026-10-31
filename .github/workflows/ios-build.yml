@@ -1,26 +1,24 @@
 name: iOS Build
 
+# macOS hosted runners are failing/cancelling on this account
+# ("scheduled macOS 14 runner..."). Do not run automatically.
+# Trigger only via Actions → iOS Build → Run workflow when runners work.
+
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 concurrency:
-  group: ios-build-${{ github.workflow }}-${{ github.ref }}
+  group: ios-build-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  # Compiles the Swift package. Requires a working macOS runner (account minutes/permissions).
   package-build:
     name: Swift package (macOS)
     runs-on: macos-14
     timeout-minutes: 25
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Xcode version
         run: xcodebuild -version
@@ -34,8 +32,6 @@ jobs:
       - name: Build
         run: swift build
 
-  # Optional IPA — only when repo variable ENABLE_IPA_BUILD=true
-  # Needs AjuUtilApp.xcodeproj + signing secrets (see docs/IOS_BUILD.md).
   ipa-archive:
     name: IPA archive (optional)
     needs: package-build
@@ -44,14 +40,13 @@ jobs:
     if: ${{ vars.ENABLE_IPA_BUILD == 'true' }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Require Xcode app project
         run: |
           set -euo pipefail
           if [ ! -d "AjuUtilApp.xcodeproj" ] && [ ! -d "AjuUtilApp.xcworkspace" ]; then
-            echo "::error::Missing AjuUtilApp.xcodeproj — create the iOS app target on a Mac first."
+            echo "::error::Missing AjuUtilApp.xcodeproj"
             exit 1
           fi
 
@@ -62,10 +57,6 @@ jobs:
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
         run: |
           set -euo pipefail
-          if [ -z "${BUILD_CERTIFICATE_BASE64}" ]; then
-            echo "::error::Secret BUILD_CERTIFICATE_BASE64 is required"
-            exit 1
-          fi
           CERTIFICATE_PATH="${RUNNER_TEMP}/build_certificate.p12"
           KEYCHAIN_PATH="${RUNNER_TEMP}/app-signing.keychain-db"
           echo -n "${BUILD_CERTIFICATE_BASE64}" | base64 -D -o "${CERTIFICATE_PATH}"
@@ -81,26 +72,17 @@ jobs:
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
         run: |
           set -euo pipefail
-          if [ -z "${BUILD_PROVISION_PROFILE_BASE64}" ]; then
-            echo "::error::Secret BUILD_PROVISION_PROFILE_BASE64 is required"
-            exit 1
-          fi
           PP_PATH="${RUNNER_TEMP}/build_pp.mobileprovision"
           echo -n "${BUILD_PROVISION_PROFILE_BASE64}" | base64 -D -o "${PP_PATH}"
           mkdir -p "${HOME}/Library/MobileDevice/Provisioning Profiles"
           UUID=$(security cms -D -i "${PP_PATH}" | plutil -extract UUID raw -)
           cp "${PP_PATH}" "${HOME}/Library/MobileDevice/Provisioning Profiles/${UUID}.mobileprovision"
-          echo "Installed profile ${UUID}"
 
       - name: Archive
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         run: |
           set -euo pipefail
-          if [ -z "${APPLE_TEAM_ID}" ]; then
-            echo "::error::Secret APPLE_TEAM_ID is required"
-            exit 1
-          fi
           xcodebuild archive \
             -project AjuUtilApp.xcodeproj \
             -scheme AjuUtilApp \
