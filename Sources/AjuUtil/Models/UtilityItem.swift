@@ -8,6 +8,8 @@ public struct UtilityItem: Codable, Identifiable, Hashable {
     public let phone: String?
     public let url: String?
     public let tags: [String]
+    public let latitude: Double?
+    public let longitude: Double?
 
     public init(
         id: String,
@@ -16,7 +18,9 @@ public struct UtilityItem: Codable, Identifiable, Hashable {
         summary: String,
         phone: String? = nil,
         url: String? = nil,
-        tags: [String] = []
+        tags: [String] = [],
+        latitude: Double? = nil,
+        longitude: Double? = nil
     ) {
         self.id = id
         self.title = title
@@ -25,6 +29,12 @@ public struct UtilityItem: Codable, Identifiable, Hashable {
         self.phone = phone
         self.url = url
         self.tags = tags
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+
+    public var hasCoordinates: Bool {
+        latitude != nil && longitude != nil
     }
 }
 

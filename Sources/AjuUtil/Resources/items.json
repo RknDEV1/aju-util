@@ -6,7 +6,9 @@
     "summary": "Atendimento pré-hospitalar de urgência e emergência",
     "phone": "192",
     "url": null,
-    "tags": ["emergência", "saúde", "ambulância", "192"]
+    "tags": ["emergência", "saúde", "192"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "bombeiros",
@@ -15,7 +17,9 @@
     "summary": "Incêndio, salvamento e emergências",
     "phone": "193",
     "url": null,
-    "tags": ["emergência", "fogo", "resgate", "193"]
+    "tags": ["emergência", "193"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "pm",
@@ -24,88 +28,119 @@
     "summary": "Ocorrências policiais e segurança pública",
     "phone": "190",
     "url": null,
-    "tags": ["emergência", "segurança", "polícia", "190"]
+    "tags": ["emergência", "190"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "pc",
     "title": "Polícia Civil",
     "category": "emergency",
-    "summary": "Registros e investigações — confirme delegacia pelo canal oficial",
+    "summary": "Registros e investigações",
     "phone": "197",
     "url": null,
-    "tags": ["polícia", "civil", "197"]
+    "tags": ["polícia", "197"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "disque-denuncia",
     "title": "Disque Denúncia",
     "category": "emergency",
-    "summary": "Denúncias anônimas (quando disponível na região)",
+    "summary": "Denúncias anônimas",
     "phone": "181",
     "url": null,
-    "tags": ["denúncia", "181", "anônimo"]
+    "tags": ["181", "denúncia"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "defesa-civil",
     "title": "Defesa Civil (199)",
     "category": "emergency",
-    "summary": "Canal nacional para desastres e situações de risco",
+    "summary": "Canal nacional para desastres e risco",
     "phone": "199",
     "url": null,
-    "tags": ["emergência", "chuva", "risco", "199"]
+    "tags": ["199", "enchente"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "defesa-civil-aju",
     "title": "Defesa Civil Aracaju",
     "category": "emergency",
-    "summary": "Contato municipal — valide no site da prefeitura se houver atualização",
+    "summary": "Contato municipal — valide no site oficial",
     "phone": "7932141745",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["defesa civil", "aracaju"]
+    "tags": ["defesa civil"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "cvv",
-    "title": "CVV — Centro de Valorização da Vida",
+    "title": "CVV",
     "category": "health",
-    "summary": "Apoio emocional e prevenção do suicídio (ligação gratuita 24h)",
+    "summary": "Apoio emocional e prevenção do suicídio (24h, gratuito)",
     "phone": "188",
     "url": "https://www.cvv.org.br",
-    "tags": ["saúde mental", "apoio", "188"]
+    "tags": ["saúde mental", "188"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "central-saude",
     "title": "Central de Atendimento da Saúde",
     "category": "health",
-    "summary": "0800 da rede municipal (orientações, ouvidoria e agendamentos em horário comercial)",
+    "summary": "0800 da rede municipal (horário comercial)",
     "phone": "08007293534",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["saúde", "SUS", "agendamento", "0800"]
+    "tags": ["SUS", "agendamento"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "ouvidoria-saude",
     "title": "Ouvidoria da Saúde",
     "category": "health",
-    "summary": "Reclamações e solicitações sobre a rede municipal de saúde",
+    "summary": "Reclamações e solicitações da rede municipal",
     "phone": "7937115011",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["ouvidoria", "saúde"]
+    "tags": ["ouvidoria"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "hospital-zona-norte",
     "title": "Hospital Zona Norte",
     "category": "health",
-    "summary": "Unidade de referência — confirme serviços pelos canais oficiais",
+    "summary": "Referência municipal — confirme serviços nos canais oficiais",
     "phone": "7932120401",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["hospital", "zona norte"]
+    "tags": ["hospital", "zona norte"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "hospital-zona-sul",
     "title": "Hospital Zona Sul",
     "category": "health",
-    "summary": "Unidade de referência — confirme serviços pelos canais oficiais",
+    "summary": "Referência municipal — confirme serviços nos canais oficiais",
     "phone": "7932120503",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["hospital", "zona sul"]
+    "tags": ["hospital", "zona sul"],
+    "latitude": null,
+    "longitude": null
+  },
+  {
+    "id": "hospital-cirurgia",
+    "title": "Hospital de Cirurgia",
+    "category": "health",
+    "summary": "Referência histórica de atendimento em Aracaju — confirme plantão e serviços oficialmente",
+    "phone": "7921067312",
+    "url": null,
+    "tags": ["hospital", "cirurgia"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "prefeitura",
@@ -114,70 +149,86 @@
     "summary": "Portal oficial da prefeitura",
     "phone": null,
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["prefeitura", "cidadão"]
+    "tags": ["prefeitura"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "emsurb",
     "title": "EMSURB",
     "category": "government",
-    "summary": "Limpeza urbana, coleta de lixo e serviços urbanos",
+    "summary": "Limpeza urbana e coleta de lixo",
     "phone": "08002841300",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["lixo", "limpeza", "emsurb"]
+    "tags": ["lixo", "limpeza"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "emurb",
     "title": "EMURB",
     "category": "government",
-    "summary": "Obras, pavimentação e urbanismo",
+    "summary": "Obras e urbanismo",
     "phone": "7931791619",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["obras", "asfalto", "emurb"]
+    "tags": ["obras"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "iluminacao",
     "title": "Iluminação pública",
     "category": "government",
-    "summary": "Reportar problema de iluminação pública",
+    "summary": "Reportar lâmpada / iluminação",
     "phone": "08006424343",
     "url": null,
-    "tags": ["luz", "poste"]
+    "tags": ["luz"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "procon",
-    "title": "Procon Aracaju (SAC 151)",
+    "title": "Procon Aracaju (151)",
     "category": "government",
     "summary": "Defesa do consumidor",
     "phone": "151",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["procon", "consumidor", "151"]
+    "tags": ["procon", "151"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "procon-fix",
     "title": "Procon Aracaju (institucional)",
     "category": "government",
-    "summary": "Telefone institucional do Procon",
+    "summary": "Telefone institucional",
     "phone": "7931796040",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["procon"]
+    "tags": ["procon"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "detran-se",
     "title": "DETRAN-SE",
     "category": "government",
-    "summary": "Departamento estadual de trânsito — serviços no portal oficial",
+    "summary": "Trânsito e serviços veiculares no portal estadual",
     "phone": null,
     "url": "https://www.detran.se.gov.br",
-    "tags": ["detran", "cnh", "veículo", "trânsito"]
+    "tags": ["detran", "cnh"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "gov-se",
-    "title": "Portal do Governo de Sergipe",
+    "title": "Governo de Sergipe",
     "category": "government",
-    "summary": "Serviços e notícias do governo estadual",
+    "summary": "Portal do governo estadual",
     "phone": null,
     "url": "https://www.se.gov.br",
-    "tags": ["governo", "estado", "sergipe"]
+    "tags": ["governo", "sergipe"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "ufs",
@@ -186,25 +237,31 @@
     "summary": "Universidade Federal de Sergipe",
     "phone": null,
     "url": "https://www.ufs.br",
-    "tags": ["universidade", "estudo"]
+    "tags": ["universidade"],
+    "latitude": -10.9261,
+    "longitude": -37.1036
   },
   {
     "id": "unit",
     "title": "UNIT / Tiradentes",
     "category": "education",
-    "summary": "Ensino e inovação (Tiradentes Innovation Center)",
+    "summary": "Ensino e inovação",
     "phone": null,
     "url": "https://www.unit.br",
-    "tags": ["faculdade", "unit"]
+    "tags": ["faculdade"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "orla-atalaia",
     "title": "Orla de Atalaia",
     "category": "city",
-    "summary": "Orla principal de lazer e turismo",
+    "summary": "Principal orla de lazer e turismo",
     "phone": null,
     "url": null,
-    "tags": ["orla", "praia", "atalaia"]
+    "tags": ["orla", "praia", "atalaia"],
+    "latitude": -10.985,
+    "longitude": -37.048
   },
   {
     "id": "centro",
@@ -213,25 +270,31 @@
     "summary": "Centro histórico e de serviços",
     "phone": null,
     "url": null,
-    "tags": ["centro", "comércio"]
+    "tags": ["centro"],
+    "latitude": -10.9095,
+    "longitude": -37.0748
   },
   {
     "id": "mercado-municipal",
     "title": "Mercado Municipal",
     "category": "city",
-    "summary": "Referência de comércio tradicional no centro",
+    "summary": "Comércio tradicional no centro",
     "phone": null,
     "url": null,
-    "tags": ["mercado", "centro", "compras"]
+    "tags": ["mercado", "centro"],
+    "latitude": -10.908,
+    "longitude": -37.076
   },
   {
     "id": "caju-hub",
     "title": "Caju Hub",
     "category": "tech",
-    "summary": "Hub de inovação e capacitação em tecnologia",
+    "summary": "Hub de inovação (região da Orla / Centro de Arte e Cultura)",
     "phone": null,
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["hub", "jovem tech", "inovação"]
+    "tags": ["hub", "inovação", "jovem tech"],
+    "latitude": -10.983,
+    "longitude": -37.05
   },
   {
     "id": "gdg-aracaju",
@@ -240,7 +303,9 @@
     "summary": "Comunidade de desenvolvedores",
     "phone": null,
     "url": "https://gdg.community.dev/gdg-aracaju/",
-    "tags": ["dev", "comunidade", "eventos"]
+    "tags": ["dev", "comunidade"],
+    "latitude": null,
+    "longitude": null
   },
   {
     "id": "sebrae-se",
@@ -249,6 +314,8 @@
     "summary": "Apoio a MEI e pequenos negócios",
     "phone": null,
     "url": "https://www.sebrae.com.br/sites/PortalSebrae/ufs/se",
-    "tags": ["mei", "empresa", "sebrae"]
+    "tags": ["mei", "sebrae"],
+    "latitude": null,
+    "longitude": null
   }
 ]

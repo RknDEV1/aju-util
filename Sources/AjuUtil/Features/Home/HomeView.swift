@@ -17,6 +17,10 @@ public struct HomeView: View {
         items.filter { $0.category == .emergency && ["190", "192", "193", "199"].contains($0.phone ?? "") }
     }
 
+    private var mapPlaces: [UtilityItem] {
+        items.filter { $0.hasCoordinates }
+    }
+
     public var body: some View {
         NavigationStack {
             List {
@@ -35,6 +39,13 @@ public struct HomeView: View {
                             .padding(.vertical, 4)
                         }
                         .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+
+                        NavigationLink {
+                            EmergencyModeView(items: items)
+                        } label: {
+                            Label("Abrir modo emergência", systemImage: "sos.circle.fill")
+                                .foregroundStyle(.red)
+                        }
                     }
                 }
 
@@ -44,6 +55,15 @@ public struct HomeView: View {
                     } label: {
                         Label("Favoritos", systemImage: "star.fill")
                     }
+
+                    if !mapPlaces.isEmpty {
+                        NavigationLink {
+                            PlacesListView(items: mapPlaces, favorites: favorites)
+                        } label: {
+                            Label("Locais no mapa", systemImage: "map")
+                        }
+                    }
+
                     NavigationLink {
                         AboutView()
                     } label: {
@@ -145,10 +165,17 @@ struct ItemRow: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
-                if let phone = item.phone {
-                    Text(phone)
-                        .font(.caption.weight(.medium))
-                        .foregroundStyle(.tint)
+                HStack(spacing: 8) {
+                    if let phone = item.phone {
+                        Text(phone)
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.tint)
+                    }
+                    if item.hasCoordinates {
+                        Label("Mapa", systemImage: "map")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
         }

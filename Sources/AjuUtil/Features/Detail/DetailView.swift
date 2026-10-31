@@ -26,6 +26,14 @@ struct DetailView: View {
                     }
                 }
 
+                if item.hasCoordinates {
+                    NavigationLink {
+                        PlaceMapView(item: item)
+                    } label: {
+                        Label("Ver no mapa", systemImage: "map")
+                    }
+                }
+
                 Button {
                     favorites.toggle(item.id)
                 } label: {
@@ -55,12 +63,8 @@ struct DetailView: View {
     private var shareText: String {
         var parts = ["\(item.title) — Aju Util"]
         parts.append(item.summary)
-        if let phone = item.phone {
-            parts.append("Tel: \(phone)")
-        }
-        if let url = item.url {
-            parts.append(url)
-        }
+        if let phone = item.phone { parts.append("Tel: \(phone)") }
+        if let url = item.url { parts.append(url) }
         return parts.joined(separator: "\n")
     }
 
@@ -98,7 +102,6 @@ struct FlowTags: View {
     }
 }
 
-/// Simple wrapping tags without extra dependencies.
 struct FlexibleTagLayout: View {
     let tags: [String]
 
