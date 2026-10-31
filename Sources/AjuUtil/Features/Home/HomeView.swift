@@ -7,8 +7,6 @@ public struct HomeView: View {
     @State private var query = ""
     @State private var items: [UtilityItem] = []
 
-    private let debouncer = Debouncer(delay: 0.25)
-
     public init() {}
 
     private var filtered: [UtilityItem] {
@@ -20,6 +18,19 @@ public struct HomeView: View {
             List {
                 Section {
                     ValidatedTextField("Buscar em Aracaju…", text: $query)
+                }
+
+                Section("Atalhos") {
+                    NavigationLink {
+                        FavoritesView(items: items, favorites: favorites)
+                    } label: {
+                        Label("Favoritos", systemImage: "star.fill")
+                    }
+                    NavigationLink {
+                        AboutView()
+                    } label: {
+                        Label("Sobre o app", systemImage: "info.circle")
+                    }
                 }
 
                 Section("Categorias") {
@@ -36,12 +47,12 @@ public struct HomeView: View {
                     }
                 }
 
-                Section("Resultados") {
+                Section(query.isBlank ? "Destaques" : "Resultados") {
                     if filtered.isEmpty {
                         Text("Nenhum item encontrado")
                             .foregroundStyle(.secondary)
                     } else {
-                        ForEach(filtered) { item in
+                        ForEach(filtered.prefix(query.isBlank ? 8 : 50)) { item in
                             NavigationLink {
                                 DetailView(item: item, favorites: favorites)
                             } label: {

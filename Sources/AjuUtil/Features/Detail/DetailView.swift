@@ -14,7 +14,7 @@ struct DetailView: View {
                     .foregroundStyle(.secondary)
 
                 if let phone = item.phone, !phone.isEmpty {
-                    PrimaryButton("Ligar \(phone)") {
+                    PrimaryButton("Ligar \(displayPhone(phone))") {
                         call(phone)
                     }
                 }
@@ -22,9 +22,7 @@ struct DetailView: View {
                 if let urlString = item.url,
                    let url = URL(string: urlString) {
                     SecondaryButton("Abrir site") {
-                        #if canImport(UIKit)
-                        UIApplication.shared.open(url)
-                        #endif
+                        openURL(url)
                     }
                 }
 
@@ -42,15 +40,35 @@ struct DetailView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
+
+                Text("Em emergência grave, priorize 190 / 192 / 193 / 199.")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
             }
             .padding()
         }
         .navigationTitle(item.title)
     }
 
+    private func displayPhone(_ phone: String) -> String {
+        if phone.hasPrefix("0800") || phone.count <= 4 {
+            return phone
+        }
+        if phone.hasPrefix("79") && phone.count >= 10 {
+            let ddd = String(phone.prefix(2))
+            let rest = String(phone.dropFirst(2))
+            return "(\(ddd)) \(rest)"
+        }
+        return phone
+    }
+
     private func call(_ phone: String) {
         let cleaned = phone.filter { $0.isNumber }
         guard let url = URL(string: "tel://\(cleaned)") else { return }
+        openURL(url)
+    }
+
+    private func openURL(_ url: URL) {
         #if canImport(UIKit)
         UIApplication.shared.open(url)
         #endif
