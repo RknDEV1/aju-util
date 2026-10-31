@@ -1,6 +1,6 @@
 # Aju Util
 
-App **iOS nativo** de utilidade para **Aracaju** e Grande Aracaju.
+App **iOS nativo** de utilidade para **Aracaju**.
 
 > English: [README.md](README.md)
 
