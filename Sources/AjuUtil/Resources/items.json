@@ -3,7 +3,7 @@
     "id": "samu",
     "title": "SAMU",
     "category": "emergency",
-    "summary": "Atendimento pré-hospitalar de urgência e emergência (ligar 192)",
+    "summary": "Atendimento pré-hospitalar de urgência e emergência",
     "phone": "192",
     "url": null,
     "tags": ["emergência", "saúde", "ambulância", "192"]
@@ -27,10 +27,28 @@
     "tags": ["emergência", "segurança", "polícia", "190"]
   },
   {
-    "id": "defesa-civil",
-    "title": "Defesa Civil (nacional)",
+    "id": "pc",
+    "title": "Polícia Civil",
     "category": "emergency",
-    "summary": "Canal nacional 199 para desastres e situações de risco",
+    "summary": "Registros e investigações — confirme delegacia pelo canal oficial",
+    "phone": "197",
+    "url": null,
+    "tags": ["polícia", "civil", "197"]
+  },
+  {
+    "id": "disque-denuncia",
+    "title": "Disque Denúncia",
+    "category": "emergency",
+    "summary": "Denúncias anônimas (quando disponível na região)",
+    "phone": "181",
+    "url": null,
+    "tags": ["denúncia", "181", "anônimo"]
+  },
+  {
+    "id": "defesa-civil",
+    "title": "Defesa Civil (199)",
+    "category": "emergency",
+    "summary": "Canal nacional para desastres e situações de risco",
     "phone": "199",
     "url": null,
     "tags": ["emergência", "chuva", "risco", "199"]
@@ -39,70 +57,25 @@
     "id": "defesa-civil-aju",
     "title": "Defesa Civil Aracaju",
     "category": "emergency",
-    "summary": "Contato municipal da Defesa Civil (confirme no site da prefeitura se mudar)",
+    "summary": "Contato municipal — valide no site da prefeitura se houver atualização",
     "phone": "7932141745",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["defesa civil", "aracaju", "enchente"]
+    "tags": ["defesa civil", "aracaju"]
   },
   {
-    "id": "prefeitura",
-    "title": "Prefeitura de Aracaju",
-    "category": "government",
-    "summary": "Portal oficial da prefeitura e notícias municipais",
-    "phone": null,
-    "url": "https://www.aracaju.se.gov.br",
-    "tags": ["prefeitura", "serviços", "cidadão"]
-  },
-  {
-    "id": "emsurb",
-    "title": "EMSURB",
-    "category": "government",
-    "summary": "Limpeza urbana, coleta de lixo, praças e serviços urbanos (0800)",
-    "phone": "08002841300",
-    "url": "https://www.aracaju.se.gov.br",
-    "tags": ["lixo", "limpeza", "praça", "emsurb"]
-  },
-  {
-    "id": "emurb",
-    "title": "EMURB",
-    "category": "government",
-    "summary": "Obras, pavimentação, drenagem e urbanismo",
-    "phone": "7931791619",
-    "url": "https://www.aracaju.se.gov.br",
-    "tags": ["obras", "asfalto", "iluminação", "emurb"]
-  },
-  {
-    "id": "iluminacao",
-    "title": "Iluminação pública",
-    "category": "government",
-    "summary": "Reportar lâmpada queimada / iluminação pública",
-    "phone": "08006424343",
-    "url": null,
-    "tags": ["luz", "poste", "iluminação"]
-  },
-  {
-    "id": "procon",
-    "title": "Procon Aracaju",
-    "category": "government",
-    "summary": "Defesa do consumidor — dúvidas e denúncias (SAC 151 e telefone institucional)",
-    "phone": "151",
-    "url": "https://www.aracaju.se.gov.br",
-    "tags": ["procon", "consumidor", "reclamaão", "151"]
-  },
-  {
-    "id": "procon-fix",
-    "title": "Procon Aracaju (institucional)",
-    "category": "government",
-    "summary": "Telefone institucional do Procon municipal",
-    "phone": "7931796040",
-    "url": "https://www.aracaju.se.gov.br",
-    "tags": ["procon", "consumidor"]
+    "id": "cvv",
+    "title": "CVV — Centro de Valorização da Vida",
+    "category": "health",
+    "summary": "Apoio emocional e prevenção do suicídio (ligação gratuita 24h)",
+    "phone": "188",
+    "url": "https://www.cvv.org.br",
+    "tags": ["saúde mental", "apoio", "188"]
   },
   {
     "id": "central-saude",
     "title": "Central de Atendimento da Saúde",
     "category": "health",
-    "summary": "0800 da rede municipal de saúde (orientações, ouvidoria e agendamentos — horário comercial)",
+    "summary": "0800 da rede municipal (orientações, ouvidoria e agendamentos em horário comercial)",
     "phone": "08007293534",
     "url": "https://www.aracaju.se.gov.br",
     "tags": ["saúde", "SUS", "agendamento", "0800"]
@@ -114,87 +87,168 @@
     "summary": "Reclamações e solicitações sobre a rede municipal de saúde",
     "phone": "7937115011",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["ouvidoria", "saúde", "SUS"]
+    "tags": ["ouvidoria", "saúde"]
   },
   {
     "id": "hospital-zona-norte",
     "title": "Hospital Zona Norte",
     "category": "health",
-    "summary": "Referência municipal — confirme serviços e plantão pelos canais oficiais",
+    "summary": "Unidade de referência — confirme serviços pelos canais oficiais",
     "phone": "7932120401",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["hospital", "urgência", "zona norte"]
+    "tags": ["hospital", "zona norte"]
   },
   {
     "id": "hospital-zona-sul",
     "title": "Hospital Zona Sul",
     "category": "health",
-    "summary": "Referência municipal — confirme serviços pelos canais oficiais",
+    "summary": "Unidade de referência — confirme serviços pelos canais oficiais",
     "phone": "7932120503",
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["hospital", "urgência", "zona sul"]
+    "tags": ["hospital", "zona sul"]
+  },
+  {
+    "id": "prefeitura",
+    "title": "Prefeitura de Aracaju",
+    "category": "government",
+    "summary": "Portal oficial da prefeitura",
+    "phone": null,
+    "url": "https://www.aracaju.se.gov.br",
+    "tags": ["prefeitura", "cidadão"]
+  },
+  {
+    "id": "emsurb",
+    "title": "EMSURB",
+    "category": "government",
+    "summary": "Limpeza urbana, coleta de lixo e serviços urbanos",
+    "phone": "08002841300",
+    "url": "https://www.aracaju.se.gov.br",
+    "tags": ["lixo", "limpeza", "emsurb"]
+  },
+  {
+    "id": "emurb",
+    "title": "EMURB",
+    "category": "government",
+    "summary": "Obras, pavimentação e urbanismo",
+    "phone": "7931791619",
+    "url": "https://www.aracaju.se.gov.br",
+    "tags": ["obras", "asfalto", "emurb"]
+  },
+  {
+    "id": "iluminacao",
+    "title": "Iluminação pública",
+    "category": "government",
+    "summary": "Reportar problema de iluminação pública",
+    "phone": "08006424343",
+    "url": null,
+    "tags": ["luz", "poste"]
+  },
+  {
+    "id": "procon",
+    "title": "Procon Aracaju (SAC 151)",
+    "category": "government",
+    "summary": "Defesa do consumidor",
+    "phone": "151",
+    "url": "https://www.aracaju.se.gov.br",
+    "tags": ["procon", "consumidor", "151"]
+  },
+  {
+    "id": "procon-fix",
+    "title": "Procon Aracaju (institucional)",
+    "category": "government",
+    "summary": "Telefone institucional do Procon",
+    "phone": "7931796040",
+    "url": "https://www.aracaju.se.gov.br",
+    "tags": ["procon"]
+  },
+  {
+    "id": "detran-se",
+    "title": "DETRAN-SE",
+    "category": "government",
+    "summary": "Departamento estadual de trânsito — serviços no portal oficial",
+    "phone": null,
+    "url": "https://www.detran.se.gov.br",
+    "tags": ["detran", "cnh", "veículo", "trânsito"]
+  },
+  {
+    "id": "gov-se",
+    "title": "Portal do Governo de Sergipe",
+    "category": "government",
+    "summary": "Serviços e notícias do governo estadual",
+    "phone": null,
+    "url": "https://www.se.gov.br",
+    "tags": ["governo", "estado", "sergipe"]
   },
   {
     "id": "ufs",
-    "title": "UFS — Universidade Federal de Sergipe",
+    "title": "UFS",
     "category": "education",
-    "summary": "Universidade pública federal — campus e portais de serviço",
+    "summary": "Universidade Federal de Sergipe",
     "phone": null,
     "url": "https://www.ufs.br",
-    "tags": ["universidade", "estudo", "vestibular"]
+    "tags": ["universidade", "estudo"]
   },
   {
     "id": "unit",
     "title": "UNIT / Tiradentes",
     "category": "education",
-    "summary": "Instituição de ensino e ecossistema de inovação (Tiradentes Innovation Center)",
+    "summary": "Ensino e inovação (Tiradentes Innovation Center)",
     "phone": null,
     "url": "https://www.unit.br",
-    "tags": ["faculdade", "inovação", "unit"]
+    "tags": ["faculdade", "unit"]
   },
   {
     "id": "orla-atalaia",
     "title": "Orla de Atalaia",
     "category": "city",
-    "summary": "Principal orla de lazer e turismo de Aracaju",
+    "summary": "Orla principal de lazer e turismo",
     "phone": null,
     "url": null,
-    "tags": ["orla", "praia", "atalaia", "lazer"]
+    "tags": ["orla", "praia", "atalaia"]
   },
   {
     "id": "centro",
     "title": "Centro de Aracaju",
     "category": "city",
-    "summary": "Área histórica e de serviços no centro da capital",
+    "summary": "Centro histórico e de serviços",
     "phone": null,
     "url": null,
-    "tags": ["centro", "comércio", "histórico"]
+    "tags": ["centro", "comércio"]
+  },
+  {
+    "id": "mercado-municipal",
+    "title": "Mercado Municipal",
+    "category": "city",
+    "summary": "Referência de comércio tradicional no centro",
+    "phone": null,
+    "url": null,
+    "tags": ["mercado", "centro", "compras"]
   },
   {
     "id": "caju-hub",
     "title": "Caju Hub",
     "category": "tech",
-    "summary": "Hub de inovação e capacitação em TI (inclui ações como Jovem Tech)",
+    "summary": "Hub de inovação e capacitação em tecnologia",
     "phone": null,
     "url": "https://www.aracaju.se.gov.br",
-    "tags": ["hub", "inovação", "jovem tech", "programação"]
+    "tags": ["hub", "jovem tech", "inovação"]
   },
   {
     "id": "gdg-aracaju",
     "title": "GDG Aracaju",
     "category": "tech",
-    "summary": "Google Developer Group — comunidade de desenvolvedores local",
+    "summary": "Comunidade de desenvolvedores",
     "phone": null,
     "url": "https://gdg.community.dev/gdg-aracaju/",
-    "tags": ["comunidade", "dev", "eventos", "google"]
+    "tags": ["dev", "comunidade", "eventos"]
   },
   {
     "id": "sebrae-se",
     "title": "Sebrae Sergipe",
     "category": "tech",
-    "summary": "Apoio a pequenos negócios e empreendedorismo",
+    "summary": "Apoio a MEI e pequenos negócios",
     "phone": null,
     "url": "https://www.sebrae.com.br/sites/PortalSebrae/ufs/se",
-    "tags": ["mei", "empresa", "empreendedor"]
+    "tags": ["mei", "empresa", "sebrae"]
   }
 ]

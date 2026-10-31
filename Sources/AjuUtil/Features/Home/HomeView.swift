@@ -13,11 +13,29 @@ public struct HomeView: View {
         DataService.search(query, in: items)
     }
 
+    private var emergencyItems: [UtilityItem] {
+        items.filter { $0.category == .emergency && ["190", "192", "193", "199"].contains($0.phone ?? "") }
+    }
+
     public var body: some View {
         NavigationStack {
             List {
                 Section {
                     ValidatedTextField("Buscar em Aracaju…", text: $query)
+                }
+
+                if query.isBlank {
+                    Section("Emergência rápida") {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 12) {
+                                ForEach(emergencyItems) { item in
+                                    EmergencyChip(item: item)
+                                }
+                            }
+                            .padding(.vertical, 4)
+                        }
+                        .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                    }
                 }
 
                 Section("Atalhos") {
@@ -42,7 +60,13 @@ public struct HomeView: View {
                                 favorites: favorites
                             )
                         } label: {
-                            Label(category.title, systemImage: category.systemImage)
+                            HStack {
+                                Label(category.title, systemImage: category.systemImage)
+                                Spacer()
+                                Text("\(items.filter { $0.category == category }.count)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
                         }
                     }
                 }
@@ -52,7 +76,7 @@ public struct HomeView: View {
                         Text("Nenhum item encontrado")
                             .foregroundStyle(.secondary)
                     } else {
-                        ForEach(filtered.prefix(query.isBlank ? 8 : 50)) { item in
+                        ForEach(filtered.prefix(query.isBlank ? 10 : 80)) { item in
                             NavigationLink {
                                 DetailView(item: item, favorites: favorites)
                             } label: {
@@ -73,17 +97,60 @@ public struct HomeView: View {
     }
 }
 
+struct EmergencyChip: View {
+    let item: UtilityItem
+
+    var body: some View {
+        Button {
+            call(item.phone)
+        } label: {
+            VStack(spacing: 6) {
+                Text(item.phone ?? "—")
+                    .font(.title3.weight(.bold))
+                Text(item.title)
+                    .font(.caption2)
+                    .lineLimit(1)
+            }
+            .frame(width: 88, height: 72)
+            .background(Color.red.opacity(0.12))
+            .foregroundStyle(.red)
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func call(_ phone: String?) {
+        guard let phone else { return }
+        let cleaned = phone.filter { $0.isNumber }
+        guard let url = URL(string: "tel://\(cleaned)") else { return }
+        #if canImport(UIKit)
+        UIApplication.shared.open(url)
+        #endif
+    }
+}
+
 struct ItemRow: View {
     let item: UtilityItem
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(item.title)
-                .font(.headline)
-            Text(item.summary)
-                .font(.subheadline)
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: item.category.systemImage)
                 .foregroundStyle(.secondary)
-                .lineLimit(2)
+                .frame(width: 24)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(item.title)
+                    .font(.headline)
+                Text(item.summary)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(2)
+                if let phone = item.phone {
+                    Text(phone)
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(.tint)
+                }
+            }
         }
         .padding(.vertical, 2)
     }

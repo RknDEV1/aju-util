@@ -1,20 +1,17 @@
 # Aju Util
 
-App **iOS nativo** de utilidade para **Aracaju** e Grande Aracaju — emergências, serviços públicos, cidade e atalhos do ecossistema de tecnologia local.
+App **iOS nativo** de utilidade para **Aracaju** e Grande Aracaju.
 
 > English: [README.md](README.md)
 
-## Objetivo
+## O que tem hoje
 
-Encontrar contatos e links úteis de forma rápida, com conteúdo curado e uso offline dos dados principais.
-
-## Funcionalidades (MVP)
-
-- Busca
+- **Emergência rápida** na home (190, 192, 193, 199)
 - Categorias: Emergência, Serviços públicos, Saúde, Educação, Cidade, Tech
-- Ligar / abrir site
-- Favoritos (armazenamento local)
-- Conteúdo em JSON (fácil de expandir)
+- Busca por nome, telefone e tags
+- Ligar / abrir site / favoritar / **compartilhar**
+- Conteúdo em JSON local (offline)
+- Contatos de prefeitura, saúde, Procon, DETRAN-SE, Caju Hub, GDG, Sebrae, CVV, etc.
 
 ## Stack
 
@@ -22,22 +19,17 @@ Encontrar contatos e links úteis de forma rápida, com conteúdo curado e uso o
 - [swift-toolkit](https://github.com/RknDEV1/swift-toolkit)
 - [swift-ui-kit](https://github.com/RknDEV1/swift-ui-kit)
 
-## Como rodar no Xcode
+## Como rodar
 
-1. Crie um **App iOS** (SwiftUI)
-2. Adicione os pacotes (branch `main`):
-   - `https://github.com/RknDEV1/swift-toolkit.git`
-   - `https://github.com/RknDEV1/swift-ui-kit.git`
-   - este repositório (ou copie `Sources/AjuUtil`)
-3. Use `HomeView()` / `AjuUtilEntry.rootView` como tela inicial
-4. Compile no simulador ou no iPhone
-
-Chamadas telefônicas só funcionam no aparelho físico.
+1. App iOS (SwiftUI) no Xcode  
+2. Pacotes: `swift-toolkit`, `swift-ui-kit`, este repo (branch `main`)  
+3. Root: `HomeView()` ou `AjuUtilEntry.rootView`  
+4. Chamadas telefônicas só no iPhone físico  
 
 ## Conteúdo
 
-Os itens ficam em `Sources/AjuUtil/Resources/items.json`.  
-Use sempre fontes oficiais. Não invente horários nem orientações legais.
+Edite `Sources/AjuUtil/Resources/items.json`.  
+Prefira fontes oficiais. Números e sites podem mudar.
 
 ## Licença
 

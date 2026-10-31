@@ -8,7 +8,12 @@ public enum DataService {
               let items = try? JSONDecoder().decode([UtilityItem].self, from: data) else {
             return Self.fallbackItems
         }
-        return items
+        return items.sorted { lhs, rhs in
+            if lhs.category == rhs.category {
+                return lhs.title.localizedCaseInsensitiveCompare(rhs.title) == .orderedAscending
+            }
+            return lhs.category.rawValue < rhs.category.rawValue
+        }
     }
 
     public static func search(_ query: String, in items: [UtilityItem]) -> [UtilityItem] {
@@ -18,36 +23,15 @@ public enum DataService {
         return items.filter { item in
             item.title.lowercased().contains(q)
                 || item.summary.lowercased().contains(q)
+                || (item.phone?.contains(q) ?? false)
                 || item.tags.contains { $0.lowercased().contains(q) }
                 || item.category.title.lowercased().contains(q)
         }
     }
 
-    /// Minimal offline set if JSON fails to load.
     private static let fallbackItems: [UtilityItem] = [
-        UtilityItem(
-            id: "samu",
-            title: "SAMU",
-            category: .emergency,
-            summary: "Urgências e emergências médicas",
-            phone: "192",
-            tags: ["emergência", "saúde", "ambulância"]
-        ),
-        UtilityItem(
-            id: "bombeiros",
-            title: "Bombeiros",
-            category: .emergency,
-            summary: "Incêndio, salvamento e emergências",
-            phone: "193",
-            tags: ["emergência", "fogo"]
-        ),
-        UtilityItem(
-            id: "policia",
-            title: "Polícia Militar",
-            category: .emergency,
-            summary: "Ocorrências policiais",
-            phone: "190",
-            tags: ["emergência", "segurança"]
-        ),
+        UtilityItem(id: "samu", title: "SAMU", category: .emergency, summary: "Urgências médicas", phone: "192", tags: ["192"]),
+        UtilityItem(id: "bombeiros", title: "Bombeiros", category: .emergency, summary: "Incêndio e salvamento", phone: "193", tags: ["193"]),
+        UtilityItem(id: "pm", title: "Polícia Militar", category: .emergency, summary: "Ocorrências", phone: "190", tags: ["190"]),
     ]
 }
