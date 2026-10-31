@@ -11,17 +11,17 @@ struct AboutView: View {
                     subtitle: "Feito para Aracaju e Grande Aracaju"
                 )
 
-                Text("App nativo em SwiftUI com contatos e links úteis. Os dados principais ficam em JSON local e funcionam offline.")
+                Text("App nativo em SwiftUI. Contatos, dicas de saúde e coordenadas ficam no aparelho para uso offline.")
                     .foregroundStyle(.secondary)
 
                 CardView {
                     VStack(alignment: .leading, spacing: 10) {
-                        Label("O que o app faz", systemImage: "checkmark.circle")
+                        Label("Offline", systemImage: "wifi.slash")
                             .font(.headline)
-                        bullet("Buscar contatos e serviços")
-                        bullet("Ligar e abrir sites oficiais")
-                        bullet("Modo emergência e mapa de pontos")
-                        bullet("Favoritos e compartilhamento")
+                        bullet("Lista de contatos e busca")
+                        bullet("Favoritos e dicas de saúde")
+                        bullet("Coordenadas dos pontos (modo offline no mapa)")
+                        bullet("Mapa visual: pode precisar de internet na 1ª carga (tiles)")
                     }
                 }
 
@@ -29,7 +29,7 @@ struct AboutView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Aviso importante")
                             .font(.headline)
-                        Text("Telefones e sites podem mudar. Em emergência, use 190, 192, 193 ou 199. Confirme informações críticas nos canais oficiais da Prefeitura e do Estado. Este app não substitui serviços de saúde ou segurança.")
+                        Text("Telefones e sites podem mudar. Em emergência use 190, 192, 193 ou 199. Confirme dados críticos nos canais oficiais. Não é aconselhamento médico.")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
