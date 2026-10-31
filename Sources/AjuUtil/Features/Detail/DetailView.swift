@@ -1,9 +1,13 @@
 import SwiftUI
 import SwiftUIKit
+#if canImport(UIKit)
+import UIKit
+#endif
 
 struct DetailView: View {
     let item: UtilityItem
     @ObservedObject var favorites: FavoritesStore
+    @State private var copied = false
 
     var body: some View {
         ScrollView {
@@ -16,6 +20,12 @@ struct DetailView: View {
                 if let phone = item.phone, !phone.isEmpty {
                     PrimaryButton("Ligar \(displayPhone(phone))") {
                         call(phone)
+                    }
+
+                    Button {
+                        copyPhone(phone)
+                    } label: {
+                        Label(copied ? "Copiado" : "Copiar telefone", systemImage: copied ? "checkmark" : "doc.on.doc")
                     }
                 }
 
@@ -74,6 +84,17 @@ struct DetailView: View {
             return "(\(phone.prefix(2))) \(phone.dropFirst(2))"
         }
         return phone
+    }
+
+    private func copyPhone(_ phone: String) {
+        #if canImport(UIKit)
+        UIPasteboard.general.string = phone.filter { $0.isNumber }
+        #endif
+        copied = true
+        Task {
+            try? await Task.sleep(nanoseconds: 1_500_000_000)
+            copied = false
+        }
     }
 
     private func call(_ phone: String) {

@@ -21,6 +21,10 @@ public struct HomeView: View {
         items.filter { $0.hasCoordinates }
     }
 
+    private var favoriteItems: [UtilityItem] {
+        items.filter { favorites.contains($0.id) }
+    }
+
     public var body: some View {
         NavigationStack {
             List {
@@ -51,6 +55,25 @@ public struct HomeView: View {
                         } label: {
                             Label("Abrir modo emergência", systemImage: "sos.circle.fill")
                                 .foregroundStyle(.red)
+                        }
+                    }
+
+                    if !favoriteItems.isEmpty {
+                        Section("Seus favoritos") {
+                            ForEach(favoriteItems.prefix(5)) { item in
+                                NavigationLink {
+                                    DetailView(item: item, favorites: favorites)
+                                } label: {
+                                    ItemRow(item: item)
+                                }
+                            }
+                            if favoriteItems.count > 5 {
+                                NavigationLink {
+                                    FavoritesView(items: items, favorites: favorites)
+                                } label: {
+                                    Text("Ver todos (\(favoriteItems.count))")
+                                }
+                            }
                         }
                     }
                 }
@@ -136,7 +159,7 @@ public struct HomeView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Aracaju na palma da mão")
                     .font(.title3.weight(.bold))
-                Text("Contatos, serviços e atalhos úteis — com modo emergência e mapa dos pontos principais.")
+                Text("Contatos, serviços, dicas de saúde e mapa — com modo offline para coordenadas e listas.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
             }
@@ -174,6 +197,7 @@ struct EmergencyChip: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityLabel("Ligar \(shortTitle) \(item.phone ?? "")")
     }
 
     private var shortTitle: String {
