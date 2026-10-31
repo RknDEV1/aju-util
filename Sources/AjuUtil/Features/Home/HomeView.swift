@@ -25,6 +25,12 @@ public struct HomeView: View {
         NavigationStack {
             List {
                 Section {
+                    headerCard
+                }
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .listRowBackground(Color.clear)
+
+                Section {
                     ValidatedTextField("Buscar em Aracaju…", text: $query)
                 }
 
@@ -65,6 +71,12 @@ public struct HomeView: View {
                     }
 
                     NavigationLink {
+                        HealthTipsView()
+                    } label: {
+                        Label("Dicas de saúde", systemImage: "heart.text.square")
+                    }
+
+                    NavigationLink {
                         AboutView()
                     } label: {
                         Label("Sobre o app", systemImage: "info.circle")
@@ -84,8 +96,11 @@ public struct HomeView: View {
                                 Label(category.title, systemImage: category.systemImage)
                                 Spacer()
                                 Text("\(items.filter { $0.category == category }.count)")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+                                    .font(.caption.weight(.semibold))
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 2)
+                                    .background(Color.secondary.opacity(0.12))
+                                    .clipShape(Capsule())
                             }
                         }
                     }
@@ -115,6 +130,18 @@ public struct HomeView: View {
         }
         .environmentObject(favorites)
     }
+
+    private var headerCard: some View {
+        CardView {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Aracaju na palma da mão")
+                    .font(.title3.weight(.bold))
+                Text("Contatos, serviços e atalhos úteis — com modo emergência e mapa dos pontos principais.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
 }
 
 struct EmergencyChip: View {
@@ -127,16 +154,36 @@ struct EmergencyChip: View {
             VStack(spacing: 6) {
                 Text(item.phone ?? "—")
                     .font(.title3.weight(.bold))
-                Text(item.title)
+                Text(shortTitle)
                     .font(.caption2)
                     .lineLimit(1)
             }
-            .frame(width: 88, height: 72)
-            .background(Color.red.opacity(0.12))
+            .frame(width: 92, height: 76)
+            .background(
+                LinearGradient(
+                    colors: [Color.red.opacity(0.18), Color.red.opacity(0.08)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
             .foregroundStyle(.red)
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .stroke(Color.red.opacity(0.25), lineWidth: 1)
+            )
         }
         .buttonStyle(.plain)
+    }
+
+    private var shortTitle: String {
+        switch item.phone {
+        case "192": return "SAMU"
+        case "193": return "Bombeiros"
+        case "190": return "PM"
+        case "199": return "Defesa Civil"
+        default: return item.title
+        }
     }
 
     private func call(_ phone: String?) {
@@ -154,9 +201,14 @@ struct ItemRow: View {
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            Image(systemName: item.category.systemImage)
-                .foregroundStyle(.secondary)
-                .frame(width: 24)
+            ZStack {
+                Circle()
+                    .fill(Color.accentColor.opacity(0.12))
+                    .frame(width: 36, height: 36)
+                Image(systemName: item.category.systemImage)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(Color.accentColor)
+            }
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
@@ -168,7 +220,7 @@ struct ItemRow: View {
                 HStack(spacing: 8) {
                     if let phone = item.phone {
                         Text(phone)
-                            .font(.caption.weight(.medium))
+                            .font(.caption.weight(.semibold))
                             .foregroundStyle(.tint)
                     }
                     if item.hasCoordinates {

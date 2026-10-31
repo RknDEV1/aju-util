@@ -1,43 +1,34 @@
 # Aju Util
 
-Native **iOS** utility app for **Aracaju** and Greater Aracaju — emergency numbers, public services, city info and local tech ecosystem shortcuts.
+Native **iOS** utility app for **Aracaju (Sergipe)** — emergency numbers, public services, health contacts, city places and local tech shortcuts.
 
 > Português: [README.pt-BR.md](README.pt-BR.md)
 
-## Goal
+## Highlights
 
-Give residents a fast, offline-friendly way to find useful contacts and links without digging through scattered websites and chats.
-
-## Features (MVP)
-
-- Search across curated items
-- Categories: Emergency, Government, Health, Education, City, Tech
-- Call / open website actions
-- Favorites (local storage)
-- JSON-driven content (easy to expand)
+- Quick emergency chips (190 / 192 / 193 / 199)
+- Full **emergency mode**
+- Search, categories, favorites, share
+- **Map** for key places (Orla, Centro, UFS, Caju Hub…)
+- Health tips (informational only)
+- Offline JSON content
 
 ## Stack
 
-- SwiftUI
+- SwiftUI · MapKit
 - [swift-toolkit](https://github.com/RknDEV1/swift-toolkit)
 - [swift-ui-kit](https://github.com/RknDEV1/swift-ui-kit)
 
-## Run in Xcode
+## Run
 
-1. Create a new **iOS App** (SwiftUI)
-2. Add packages (branch `main`):
-   - `https://github.com/RknDEV1/swift-toolkit.git`
-   - `https://github.com/RknDEV1/swift-ui-kit.git`
-   - this repo (or copy `Sources/AjuUtil`)
-3. Set root view to `HomeView()` / `AjuUtilEntry.rootView`
-4. Build & run on simulator or device
+1. Create an iOS App (SwiftUI) in Xcode  
+2. Add packages (branch `main`): toolkit, ui-kit, this repo  
+3. Root view: `HomeView()` or `AjuUtilEntry.rootView`  
+4. Phone calls require a physical iPhone  
 
-Phone calls only work on a real iPhone.
+## Disclaimer
 
-## Content
-
-Items live in `Sources/AjuUtil/Resources/items.json`.  
-Prefer **official** phones and URLs. Do not invent schedules or legal advice.
+Not affiliated with the City of Aracaju. Verify critical info on official channels. Not medical advice.
 
 ## License
 
