@@ -1,35 +1,35 @@
 # Aju Util
 
-App **iOS nativo** de utilidade para **Aracaju**.
+App **iOS nativo** de utilidade para **Aracaju** e Grande Aracaju.
 
 > English: [README.md](README.md)
 
 ## Recursos
 
-- Emergência rápida e **modo emergência**
-- Busca, categorias, favoritos e compartilhar
-- **Dicas de saúde** (offline, só orientação)
-- **Mapa** + **modo offline** com coordenadas e atalho para Apple Maps
-- Conteúdo em JSON no aparelho
+- Emergência rápida e modo emergência
+- Busca, favoritos, compartilhar, copiar telefone
+- Dicas de saúde (offline)
+- Mapa + modo offline com coordenadas
+- JSON no aparelho
 
-## Offline vs online
+## CI / build
 
-| Recurso | Offline |
-|---------|---------|
-| Contatos, busca, favoritos | Sim |
-| Dicas de saúde | Sim |
-| Coordenadas dos pontos | Sim |
-| Mapa visual (imagens do mapa) | Pode precisar de rede na 1ª vez |
+| Workflow | Função |
+|----------|--------|
+| `ci.yml` | Valida estrutura (Ubuntu) |
+| `ios-build.yml` | Compila o package no macOS; job de IPA opcional (desligado até existir `.xcodeproj` + certificados) |
 
-O MapKit da Apple não permite “baixar Aracaju inteira” como app de navegação offline completo sem soluções pesadas. Por isso o app guarda **coordenadas** e um **modo offline** explícito.
+Guia completo: **[docs/IOS_BUILD.md](docs/IOS_BUILD.md)**.
+
+> Compilar na nuvem **não** instala o app no iPhone sem assinatura Apple.
+
+## Offline
+
+Contatos, dicas e coordenadas funcionam sem rede. O desenho do mapa (tiles) pode precisar de internet na primeira vez.
 
 ## Stack
 
 SwiftUI · MapKit · [swift-toolkit](https://github.com/RknDEV1/swift-toolkit) · [swift-ui-kit](https://github.com/RknDEV1/swift-ui-kit)
-
-## Como rodar
-
-App iOS no Xcode + pacotes na branch `main` → root `HomeView()`.
 
 ## Licença
 
