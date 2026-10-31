@@ -9,12 +9,18 @@ on:
 
 jobs:
   validate:
+    name: Structure
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check structure
+
+      - name: Check required files
         run: |
+          set -euo pipefail
           test -f Package.swift
           test -f Sources/AjuUtil/Resources/items.json
           test -d Sources/AjuUtil/Features
-          echo "Aju Util structure OK"
+          test -f .github/workflows/ios-build.yml
+          test -f docs/IOS_BUILD.md
+          python3 -c "import json; json.load(open('Sources/AjuUtil/Resources/items.json'))"
+          echo "Structure and items.json OK"
