@@ -1,0 +1,92 @@
+[
+  {
+    "id": "samu",
+    "title": "SAMU",
+    "category": "emergency",
+    "summary": "Urgências e emergências médicas em Aracaju e região",
+    "phone": "192",
+    "url": null,
+    "tags": ["emergência", "saúde", "ambulância"]
+  },
+  {
+    "id": "bombeiros",
+    "title": "Corpo de Bombeiros",
+    "category": "emergency",
+    "summary": "Incêndio, salvamento e atendimentos de emergência",
+    "phone": "193",
+    "url": null,
+    "tags": ["emergência", "fogo", "resgate"]
+  },
+  {
+    "id": "pm",
+    "title": "Polícia Militar",
+    "category": "emergency",
+    "summary": "Ocorrências policiais e segurança pública",
+    "phone": "190",
+    "url": null,
+    "tags": ["emergência", "segurança", "polícia"]
+  },
+  {
+    "id": "defesa-civil",
+    "title": "Defesa Civil",
+    "category": "emergency",
+    "summary": "Desastres, enchentes e situações de risco",
+    "phone": "199",
+    "url": null,
+    "tags": ["emergência", "chuva", "risco"]
+  },
+  {
+    "id": "prefeitura",
+    "title": "Prefeitura de Aracaju",
+    "category": "government",
+    "summary": "Portal e canais oficiais da gestão municipal",
+    "phone": null,
+    "url": "https://www.aracaju.se.gov.br",
+    "tags": ["prefeitura", "serviços", "cidadão"]
+  },
+  {
+    "id": "semde",
+    "title": "Desenvolvimento Econômico e Inovação",
+    "category": "government",
+    "summary": "Secretaria ligada a empresas, TI e inovação em Aracaju",
+    "phone": null,
+    "url": "https://www.aracaju.se.gov.br",
+    "tags": ["inovação", "empresas", "TI"]
+  },
+  {
+    "id": "ufs",
+    "title": "Universidade Federal de Sergipe (UFS)",
+    "category": "education",
+    "summary": "Principal universidade pública do estado",
+    "phone": null,
+    "url": "https://www.ufs.br",
+    "tags": ["universidade", "estudo", "campus"]
+  },
+  {
+    "id": "orla-atalaia",
+    "title": "Orla de Atalaia",
+    "category": "city",
+    "summary": "Principal orla turística e de lazer de Aracaju",
+    "phone": null,
+    "url": null,
+    "tags": ["orla", "praia", "lazer", "atalaia"]
+  },
+  {
+    "id": "caju-hub",
+    "title": "Caju Hub",
+    "category": "tech",
+    "summary": "Hub de inovação e capacitação em tecnologia na capital",
+    "phone": null,
+    "url": null,
+    "tags": ["inovação", "hub", "jovem tech", "programação"]
+  },
+  {
+    "id": "gdg-aracaju",
+    "title": "GDG Aracaju",
+    "category": "tech",
+    "summary": "Comunidade de desenvolvedores (Google Developer Group)",
+    "phone": null,
+    "url": "https://gdg.community.dev/gdg-aracaju/",
+    "tags": ["comunidade", "dev", "eventos"]
+  }
+]
