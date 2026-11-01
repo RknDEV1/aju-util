@@ -1,47 +1,59 @@
-# Build iOS / IPA
+# Build iOS / IPA — Aju Util
 
-## O que existe agora no repo
+## O que já está no GitHub
 
-| Item | Status |
-|------|--------|
-| Código SwiftUI (`Sources/AjuUtil`) | Sim |
-| `AjuUtilApp.xcodeproj` | Sim (mínimo, gerado para CI/Xcode) |
-| `AjuUtilApp/AjuUtilApp.swift` (`@main`) | Sim |
-| Assinatura Apple (certs) | **Não** — você precisa configurar |
-| Runner macOS na sua conta GitHub | Pode estar bloqueado (*scheduled macOS 14 runner*) |
+- Código do app (`Sources/AjuUtil`)
+- `AjuUtilApp.xcodeproj` + `AjuUtilApp/AjuUtilApp.swift`
+- Workflow `.github/workflows/ios-build.yml`
 
-## Abrir no Xcode (quando tiver Mac)
+## Dois tipos de build
 
-1. Clone o repo  
-2. Abra `AjuUtilApp.xcodeproj`  
-3. Selecione o target **AjuUtilApp**  
-4. Em Signing: marque seu Team  
-5. Rode no simulador ou iPhone  
+### 1) Build de simulador (sem certificados)
 
-O app usa o package local `.` (produto `AjuUtil`).
+O job **Build (macOS)** tenta:
 
-## IPA no GitHub Actions
+1. `swift build`
+2. `xcodebuild` para **iOS Simulator** com `CODE_SIGNING_ALLOWED=NO`
 
-1. Runner **macOS** precisa funcionar na conta  
-2. Secrets de assinatura (ver abaixo)  
-3. Variable `ENABLE_IPA_BUILD=true`  
-4. Actions → **iOS Build** → Run workflow  
+Se a sua conta **tiver** runner macOS, isso valida o projeto.
 
-### Secrets
+**Não instala no iPhone físico.**
 
-| Secret | Conteúdo |
-|--------|----------|
-| `BUILD_CERTIFICATE_BASE64` | `.p12` em base64 |
-| `P12_PASSWORD` | Senha do p12 |
-| `KEYCHAIN_PASSWORD` | Senha do keychain temporário |
+### 2) IPA assinada (no iPhone)
+
+Só roda se:
+
+1. Variable do repo: `ENABLE_IPA_BUILD` = `true`
+2. Secrets preenchidos (abaixo)
+3. Runner macOS disponível
+
+| Secret | Descrição |
+|--------|-----------|
+| `BUILD_CERTIFICATE_BASE64` | arquivo `.p12` em base64 |
+| `P12_PASSWORD` | senha do p12 |
+| `KEYCHAIN_PASSWORD` | senha qualquer |
 | `BUILD_PROVISION_PROFILE_BASE64` | `.mobileprovision` em base64 |
-| `APPLE_TEAM_ID` | Team ID |
+| `APPLE_TEAM_ID` | Team ID Apple |
 
-### Variable
+Isso **exige conta Apple** (Developer) e, na prática, **um Mac pelo menos uma vez** para criar cert/profile.
 
-`ENABLE_IPA_BUILD` = `true`
+## Erro "scheduled macOS 14 runner"
 
-## Sem Mac
+A GitHub **não está dando** máquina macOS para a conta.
 
-O `.xcodeproj` **não gera IPA sozinho** no celular.  
-Ainda é necessário macOS (Actions ou máquina) + certificados Apple para IPA instalável.
+Resolução:
+
+1. https://github.com/settings/billing — minutos / spending limit
+2. Settings do repo → Actions → permitir workflows
+3. Esperar reset do ciclo ou adicionar crédito
+
+**Nenhum YAML corrige falta de runner macOS.**
+
+## Sem Mac em casa
+
+| Objetivo | Caminho |
+|----------|---------|
+| Portfólio de código | Já ok no GitHub |
+| Compilar na nuvem | Só se macOS Actions liberar |
+| IPA no iPhone | Certs Apple + macOS (Actions ou alugado) |
+| Usar no celular agora | App web (não IPA) |
