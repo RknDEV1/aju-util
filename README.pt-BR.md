@@ -4,28 +4,24 @@ App **iOS nativo** de utilidade para **Aracaju** e Grande Aracaju.
 
 > English: [README.md](README.md)
 
+## Estrutura
+
+- `Sources/AjuUtil` — código do app (package)
+- `AjuUtilApp.xcodeproj` — projeto Xcode mínimo
+- `AjuUtilApp/AjuUtilApp.swift` — entry `@main`
+
 ## Recursos
 
 - Emergência rápida e modo emergência
 - Busca, favoritos, compartilhar, copiar telefone
 - Dicas de saúde (offline)
 - Mapa + modo offline com coordenadas
-- JSON no aparelho
 
-## CI / build
+## Build / IPA
 
-| Workflow | Função |
-|----------|--------|
-| `ci.yml` | Valida estrutura (Ubuntu) |
-| `ios-build.yml` | Compila o package no macOS; job de IPA opcional (desligado até existir `.xcodeproj` + certificados) |
+Veja [docs/IOS_BUILD.md](docs/IOS_BUILD.md).
 
-Guia completo: **[docs/IOS_BUILD.md](docs/IOS_BUILD.md)**.
-
-> Compilar na nuvem **não** instala o app no iPhone sem assinatura Apple.
-
-## Offline
-
-Contatos, dicas e coordenadas funcionam sem rede. O desenho do mapa (tiles) pode precisar de internet na primeira vez.
+Resumo: o `.xcodeproj` já está no repo; **IPA** ainda exige runner macOS + certificados Apple.
 
 ## Stack
 

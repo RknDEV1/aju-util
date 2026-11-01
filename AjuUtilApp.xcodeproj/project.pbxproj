@@ -1,0 +1,268 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+	A10000000000000000000001 /* AjuUtilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000002 /* AjuUtilApp.swift */; };
+	A10000000000000000000003 /* AjuUtil in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000004 /* AjuUtil */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+	A10000000000000000000002 /* AjuUtilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjuUtilApp.swift; sourceTree = "<group>"; };
+	A10000000000000000000005 /* AjuUtilApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AjuUtilApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+	A10000000000000000000006 /* Frameworks */ = {
+		isa = PBXFrameworksBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+			A10000000000000000000003 /* AjuUtil in Frameworks */,
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+	A10000000000000000000007 = {
+		isa = PBXGroup;
+		children = (
+			A10000000000000000000008 /* AjuUtilApp */,
+			A10000000000000000000009 /* Products */,
+		);
+		sourceTree = "<group>";
+	};
+	A10000000000000000000008 /* AjuUtilApp */ = {
+		isa = PBXGroup;
+		children = (
+			A10000000000000000000002 /* AjuUtilApp.swift */,
+		);
+		path = AjuUtilApp;
+		sourceTree = "<group>";
+	};
+	A10000000000000000000009 /* Products */ = {
+		isa = PBXGroup;
+		children = (
+			A10000000000000000000005 /* AjuUtilApp.app */,
+		);
+		name = Products;
+		sourceTree = "<group>";
+	};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+	A1000000000000000000000A /* AjuUtilApp */ = {
+		isa = PBXNativeTarget;
+		buildConfigurationList = A1000000000000000000000B /* Build configuration list for PBXNativeTarget "AjuUtilApp" */;
+		buildPhases = (
+			A1000000000000000000000C /* Sources */,
+			A10000000000000000000006 /* Frameworks */,
+			A1000000000000000000000D /* Resources */,
+		);
+		buildRules = (
+		);
+		dependencies = (
+		);
+		name = AjuUtilApp;
+		packageProductDependencies = (
+			A10000000000000000000004 /* AjuUtil */,
+		);
+		productName = AjuUtilApp;
+		productReference = A10000000000000000000005 /* AjuUtilApp.app */;
+		productType = "com.apple.product-type.application";
+	};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+	A1000000000000000000000E /* Project object */ = {
+		isa = PBXProject;
+		attributes = {
+			BuildIndependentTargetsInParallel = 1;
+			LastSwiftUpdateCheck = 1500;
+			LastUpgradeCheck = 1500;
+			TargetAttributes = {
+				A1000000000000000000000A = {
+					CreatedOnToolsVersion = 15.0;
+				};
+			};
+		};
+		buildConfigurationList = A1000000000000000000000F /* Build configuration list for PBXProject "AjuUtilApp" */;
+		compatibilityVersion = "Xcode 14.0";
+		developmentRegion = en;
+		hasScannedForEncodings = 0;
+		knownRegions = (
+			en,
+			Base,
+		);
+		mainGroup = A10000000000000000000007;
+		packageReferences = (
+			A10000000000000000000010 /* XCLocalSwiftPackageReference "." */,
+		);
+		productRefGroup = A10000000000000000000009 /* Products */;
+		projectDirPath = "";
+		projectRoot = "";
+		targets = (
+			A1000000000000000000000A /* AjuUtilApp */,
+		);
+	};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+	A1000000000000000000000D /* Resources */ = {
+		isa = PBXResourcesBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+	A1000000000000000000000C /* Sources */ = {
+		isa = PBXSourcesBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+			A10000000000000000000001 /* AjuUtilApp.swift in Sources */,
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+	A10000000000000000000011 /* Debug */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
+			CLANG_ENABLE_MODULES = YES;
+			COPY_PHASE_STRIP = NO;
+			DEBUG_INFORMATION_FORMAT = dwarf;
+			ENABLE_TESTABILITY = YES;
+			GCC_DYNAMIC_NO_PIC = NO;
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			ONLY_ACTIVE_ARCH = YES;
+			SDKROOT = iphoneos;
+			SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			SWIFT_VERSION = 5.0;
+		};
+		name = Debug;
+	};
+	A10000000000000000000012 /* Release */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO;
+			CLANG_ENABLE_MODULES = YES;
+			COPY_PHASE_STRIP = NO;
+			DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+			IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+			SDKROOT = iphoneos;
+			SWIFT_COMPILATION_MODE = wholemodule;
+			SWIFT_VERSION = 5.0;
+			VALIDATE_PRODUCT = YES;
+		};
+		name = Release;
+	};
+	A10000000000000000000013 /* Debug */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			ENABLE_PREVIEWS = YES;
+			GENERATE_INFOPLIST_FILE = YES;
+			INFOPLIST_KEY_CFBundleDisplayName = "Aju Util";
+			INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+			INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+			INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+			INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+			LD_RUNPATH_SEARCH_PATHS = (
+				"$(inherited)",
+				"@executable_path/Frameworks",
+			);
+			MARKETING_VERSION = 1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = com.rkndev.ajuutil;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			SUPPORTS_MACCATALYST = NO;
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = 1;
+		};
+		name = Debug;
+	};
+	A10000000000000000000014 /* Release */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+			CODE_SIGN_STYLE = Automatic;
+			CURRENT_PROJECT_VERSION = 1;
+			DEVELOPMENT_TEAM = "";
+			ENABLE_PREVIEWS = YES;
+			GENERATE_INFOPLIST_FILE = YES;
+			INFOPLIST_KEY_CFBundleDisplayName = "Aju Util";
+			INFOPLIST_KEY_LSRequiresIPhoneOS = YES;
+			INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+			INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+			INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+			LD_RUNPATH_SEARCH_PATHS = (
+				"$(inherited)",
+				"@executable_path/Frameworks",
+			);
+			MARKETING_VERSION = 1.0;
+			PRODUCT_BUNDLE_IDENTIFIER = com.rkndev.ajuutil;
+			PRODUCT_NAME = "$(TARGET_NAME)";
+			SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+			SUPPORTS_MACCATALYST = NO;
+			SWIFT_EMIT_LOC_STRINGS = YES;
+			SWIFT_VERSION = 5.0;
+			TARGETED_DEVICE_FAMILY = 1;
+		};
+		name = Release;
+	};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+	A1000000000000000000000B /* Build configuration list for PBXNativeTarget "AjuUtilApp" */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			A10000000000000000000013 /* Debug */,
+			A10000000000000000000014 /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+	A1000000000000000000000F /* Build configuration list for PBXProject "AjuUtilApp" */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			A10000000000000000000011 /* Debug */,
+			A10000000000000000000012 /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+	A10000000000000000000010 /* XCLocalSwiftPackageReference "." */ = {
+		isa = XCLocalSwiftPackageReference;
+		relativePath = .;
+	};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+	A10000000000000000000004 /* AjuUtil */ = {
+		isa = XCSwiftPackageProductDependency;
+		package = A10000000000000000000010 /* XCLocalSwiftPackageReference "." */;
+		productName = AjuUtil;
+	};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A1000000000000000000000E /* Project object */;
+}
